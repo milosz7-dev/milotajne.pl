@@ -3,155 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tworzenie Stron & Hosting | milotajne.pl</title>
+    <title>Strona w budowie | milotajne.pl</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .maintenance-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .maintenance-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+        .maintenance-card h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .maintenance-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        .dc-link {
+            color: #818cf8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .dc-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>Zamów Profesjonalną Stronę WWW</h1>
-            <p>Otrzymaj gotową stronę z tymczasowym hostingiem na max 10 dni pod własną subdomeną (np. nazwa.milotajne.pl) oraz społecznością na <a href="https://dc.milotajne.pl" target="_blank" style="color: #818cf8;">dc.milotajne.pl</a>!</p>
-        </header>
-
-        <div class="grid-2">
-            <!-- SEKCJA OFERTY I ZAMÓWIENIA -->
-            <div class="card">
-                <h2>1. Skonfiguruj i Zamów Stronę</h2>
-                <form id="order-form">
-                    <label>Twoje Imię / Nazwa firmy</label>
-                    <input type="text" id="client-name" required placeholder="np. Jan Kowalski">
-
-                    <label>E-mail</label>
-                    <input type="email" id="client-email" required placeholder="jan@example.com">
-
-                    <label>Wymarzona subdomena</label>
-                    <input type="text" id="subdomain" required placeholder="np. mojprojekt (dostaniesz mojprojekt.milotajne.pl)">
-
-                    <label>Opis strony (Co ma w niej być?)</label>
-                    <textarea id="description" rows="4" required placeholder="Napisz o czym ma być strona..."></textarea>
-
-                    <label>Dodaj zdjęcia / pliki (opcjonalnie)</label>
-                    <input type="file" id="client-files" multiple>
-
-                    <label><input type="checkbox" id="need-invoice" onchange="toggleInvoiceFields()"> Chcę otrzymać fakturę VAT</label>
-                    
-                    <div id="invoice-fields" style="display: none; margin-top: 10px;">
-                        <input type="text" id="company-name" placeholder="Nazwa Firmy">
-                        <input type="text" id="company-nip" placeholder="Numer NIP">
-                    </div>
-
-                    <button type="button" id="pay-btn" style="margin-top: 20px;" onclick="processPaymentAndSave()">Opłać i Wyślij Zamówienie (299 PLN)</button>
-                </form>
-            </div>
-
-            <!-- SEKCJA PORTFOLIO I INFORMACJI O HOSTINGU -->
-            <div>
-                <div class="card" style="margin-bottom: 20px;">
-                    <h2>Nasze Portfolio</h2>
-                    <p>Zobacz przykłady zrealizowanych przez nas projektów:</p>
-                    <div class="portfolio-grid">
-                        <div class="portfolio-item">Sklep BBQ</div>
-                        <div class="portfolio-item">Serwer MC</div>
-                        <div class="portfolio-item">Strona Portfolio</div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h2>Warunki Hostingu (Max 10 dni)</h2>
-                    <ul style="color: var(--text-muted); padding-left: 20px; line-height: 1.6;">
-                        <li>Otrzymujesz darmowy hosting na okres próbny do 10 dni.</li>
-                        <li>Twoja strona ląduje pod wybraną subdomeną w ekosystemie <strong>milotajne.pl</strong>.</li>
-                        <li>Pełne wsparcie techniczne na naszym kanale Discord: <a href="https://dc.milotajne.pl" style="color: #818cf8;" target="_blank">dc.milotajne.pl</a></li>
-                    </ul>
-                </div>
-            </div>
+    <div class="maintenance-container">
+        <div class="maintenance-card">
+            <h1>Strona w budowie 🚀</h1>
+            <p>Już niedługo rusza nasza nowa platforma pod marką <strong>milotajne.pl</strong>. Pracujemy nad czymś wyjątkowym!</p>
+            <p>W międzyczasie zapraszamy do naszej społeczności na Discordzie:</p>
+            <a href="https://dc.milotajne.pl" class="dc-link" target="_blank">Dołącz do dc.milotajne.pl</a>
         </div>
     </div>
 
-    <!-- BANER COOKIES Z OPCJĄ ODRZUCENIA -->
-    <div id="cookie-banner">
-        <span>Używamy plików cookies, aby zapewnić najlepsze działanie strony i panelu zamówień.</span>
-        <div class="cookie-btns">
-            <button class="reject" onclick="rejectCookies()">Odrzuć</button>
-            <button onclick="acceptCookies()">Akceptuj</button>
-        </div>
-    </div>
-
-    <!-- Skrypt obsługujący zapis do Supabase i płatność Stripe -->
-    <script type="module">
-        import { supabase } from './supabaseClient.js'
-
-        async function getClientIP() {
-            try {
-                const response = await fetch('https://api.ipify.org?format=json');
-                const data = await response.json();
-                return data.ip;
-            } catch (e) {
-                return 'Nieznane IP';
-            }
-        }
-
-        window.processPaymentAndSave = async function() {
-            const name = document.getElementById('client-name').value;
-            const email = document.getElementById('client-email').value;
-            const subdomain = document.getElementById('subdomain').value;
-            const description = document.getElementById('description').value;
-            const needInvoice = document.getElementById('need-invoice').checked;
-            const nip = document.getElementById('company-nip')?.value || '';
-
-            if(!name || !email || !subdomain || !description) {
-                alert('Wypełnij wszystkie wymagane pola formularza!');
-                return;
-            }
-
-            const clientIp = await getClientIP();
-
-            // Zapis do tabeli 'order' zgodny z Twoją bazą Supabase
-            const { error } = await supabase
-                .from('order')
-                .insert([
-                    { 
-                        name, 
-                        email, 
-                        subdomain, 
-                        description, 
-                        need_invoice: needInvoice, 
-                        nip, 
-                        client_ip: clientIp 
-                    }
-                ]);
-
-            if (error) {
-                alert('Błąd podczas zapisywania zamówienia: ' + error.message);
-                return;
-            }
-
-            // Twój testowy link do płatności Stripe
-            const stripePaymentLink = "https://buy.stripe.com/test_5kQaEZcqIduX4rEgzv8ww00";
-
-            // Przekierowanie klienta do bramki płatności Stripe
-            window.location.href = stripePaymentLink;
-        }
-    </script>
-
-    <script>
-        function toggleInvoiceFields() {
-            const fields = document.getElementById('invoice-fields');
-            fields.style.display = document.getElementById('need-invoice').checked ? 'block' : 'none';
-        }
-
-        function acceptCookies() {
-            localStorage.setItem('cookies_accepted', 'true');
-            document.getElementById('cookie-banner').style.display = 'none';
-        }
-        function rejectCookies() {
-            localStorage.setItem('cookies_accepted', 'false');
-            document.getElementById('cookie-banner').style.display = 'none';
-        }
-        if(localStorage.getItem('cookies_accepted')) {
-            document.getElementById('cookie-banner').style.display = 'none';
-        }
-    </script>
 </body>
 </html>
