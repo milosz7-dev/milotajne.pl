@@ -160,7 +160,7 @@
             border-radius: 6px;
             padding: 12px;
             position: fixed;
-            z-index: 1;
+            z-index: 1000;
             bottom: 30px;
             font-weight: 600;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
@@ -198,6 +198,49 @@
             0% { transform: scale(1); }
             50% { transform: scale(1.02); }
             100% { transform: scale(1); }
+        }
+
+        /* Cookie Banner Styles */
+        #cookie-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            max-width: 500px;
+            background: var(--card-bg);
+            color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            z-index: 9999;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .cookie-text {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: var(--subtext-color);
+        }
+
+        .cookie-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: opacity 0.2s;
+        }
+
+        .cookie-btn:hover {
+            opacity: 0.9;
         }
     </style>
 </head>
@@ -247,6 +290,14 @@
         </div>
     </div>
 
+    <!-- Banner Cookies -->
+    <div id="cookie-banner">
+        <p class="cookie-text">
+            Ta strona używa plików cookies w celach statystycznych i prawidłowego działania serwisu.
+        </p>
+        <button class="cookie-btn" onclick="acceptCookies()">Akceptuję</button>
+    </div>
+
     <footer>
         &copy; 2026 MiloTajne.pl. Wszystkie prawa zastrzeżone. <br>
         Strona nie jest powiązana z firmą Mojang AB.
@@ -277,6 +328,18 @@
             if (clickCount === 5) {
                 secretBox.style.display = "block";
                 alert("🔓 Odkryłeś ukryty Easter Egg!");
+            }
+        });
+
+        // Obsługa Cookies (Banner zapamiętuje wybór w przeglądarce)
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                document.getElementById('cookie-banner').style.display = 'flex';
             }
         });
     </script>
