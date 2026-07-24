@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miłosz Rewak | Hub Projektów & Tech Sandbox</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0d0f12;
+            --card-bg: #161920;
+            --accent-cyan: #00f2fe;
+            --accent-purple: #9d4edd;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #262b36;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* HEADER SECTION */
+        header {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(180deg, rgba(22, 25, 32, 0.8) 0%, rgba(13, 15, 18, 0) 100%);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 3rem;
+            border-radius: 16px;
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--bg);
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.3);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+        }
+
+        h1 span {
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            color: var(--text-muted);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.95rem;
+        }
+
+        /* PROJECT GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h2 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.6rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            color: var(--accent-cyan);
+        }
+
+        /* STATUS BADGE */
+        .status {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10b981;
+            box-shadow: 0 0 10px #10b981;
+            margin-right: 6px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-family: 'Fira Code', monospace;
+        }
+
+        footer strong {
+            color: var(--text-main);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="avatar">MR</div>
+        <h1>Cześć, jestem <span>Miłosz</span> 👋</h1>
+        <p class="tagline">&gt; Buduję automatyzacje, sprzęt, wizualizacje AI i customowe serwery.</p>
+    </header>
+
+    <main class="grid">
+
+        <!-- PROJEKT 1: Automatyzacje & Docker -->
+        <article class="card">
+            <div class="card-icon">🚀</div>
+            <h2>Automatyzacje & Infra Docker</h2>
+            <p>Konteneryzacja środowisk oraz budowanie rozbudowanych przepływów danych (workflows) w n8n spiętych z zewnętrznymi API i mikrokontrolerami.</p>
+            <div class="tags">
+                <span class="tag">Docker</span>
+                <span class="tag">n8n</span>
+                <span class="tag">REST API</span>
+                <span class="tag">Self-Hosted</span>
+            </div>
+        </article>
+
+        <!-- PROJEKT 2: IoT & Arduino Lab -->
+        <article class="card">
+            <div class="card-icon">📟</div>
+            <h2>IoT & Hardware Lab</h2>
+            <p>Projekty z zakresu elektroniki: stacja pogodowa na Arduino Uno, moduły podczerwieni IR oraz przenośny gadżet M5Stack Cardputer.</p>
+            <div class="tags">
+                <span class="tag">Arduino</span>
+                <span class="tag">ESP32</span>
+                <span class="tag">M5Stack</span>
+                <span class="tag">Hardware</span>
+            </div>
+        </article>
+
+        <!-- PROJEKT 3: Custom Minecraft Ecosystem -->
+        <article class="card">
+            <div class="card-icon">🎮</div>
+            <h2>Minecraft Ecosystem & Mods</h2>
+            <p>Konfiguracja customowych launcherów, optymalizacja silnika Fabric, rozwiązywanie crash logów i tworzenie unikalnych trybów (np. BoxPvP).</p>
+            <div class="tags">
+                <span class="tag">Minecraft</span>
+                <span class="tag">Fabric</span>
+                <span class="tag">Custom Launcher</span>
+                <span class="tag">Aternos</span>
+            </div>
+        </article>
+
+        <!-- PROJEKT 4: Generatywne AI & ComfyUI -->
+        <article class="card">
+            <div class="card-icon">🎨</div>
+            <h2>ComfyUI & Video AI</h2>
+            <p>Zaawansowane węzły renderowania w ComfyUI – w tym efekty segmentacji twarzy i nakładania masek wideo w czasie rzeczywistym.</p>
+            <div class="tags">
+                <span class="tag">ComfyUI</span>
+                <span class="tag">AI Segmentation</span>
+                <span class="tag">Video Processing</span>
+            </div>
+        </article>
+
+        <!-- PROJEKT 5: Integracje API -->
+        <article class="card">
+            <div class="card-icon">🔗</div>
+            <h2>Integracje Web & Cloud</h2>
+            <p>Konfiguracja autoryzacji OAuth2, kluczy API oraz połączeń między platformami takimi jak Webflow, Microsoft Azure czy WhatsApp API.</p>
+            <div class="tags">
+                <span class="tag">OAuth2</span>
+                <span class="tag">Webflow</span>
+                <span class="tag">WhatsApp API</span>
+            </div>
+        </article>
+
+    </main>
+
+    <footer>
+        <p><span class="status"></span>Status serwera: Aktywny na <strong>milotajne.pl</strong></p>
+        <p style="margin-top: 0.5rem; opacity: 0.6;">&copy; 2026 Miłosz Rewak. Wszystkie prawa zastrzeżone.</p>
+    </footer>
+
+</body>
+</html>
