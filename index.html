@@ -107,9 +107,9 @@
 
             const clientIp = await getClientIP();
 
-            // Zapis tymczasowy zamówienia przed przekierowaniem do płatności
+            // Zapis do tabeli 'order' zgodny z Twoją bazą Supabase
             const { error } = await supabase
-                .from('orders')
+                .from('order')
                 .insert([
                     { 
                         name, 
@@ -118,8 +118,7 @@
                         description, 
                         need_invoice: needInvoice, 
                         nip, 
-                        client_ip: clientIp, 
-                        status: 'Oczekuje na płatność' 
+                        client_ip: clientIp 
                     }
                 ]);
 
@@ -128,10 +127,10 @@
                 return;
             }
 
-            // TUTAJ WKLEJ SWÓJ LINK DO PŁATNOŚCI STRIPE (np. https://buy.stripe.com/...)
+            // Twój testowy link do płatności Stripe
             const stripePaymentLink = "https://buy.stripe.com/test_5kQaEZcqIduX4rEgzv8ww00";
 
-            // Przekierowanie klienta do prawdziwej bramki płatności Stripe
+            // Przekierowanie klienta do bramki płatności Stripe
             window.location.href = stripePaymentLink;
         }
     </script>
