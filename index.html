@@ -3,61 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>milotajne.pl — Elitarne Narzędzia i Automatyzacje Cyfrowe</title>
+    <title>milotajne.pl — W budowie</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Dodatkowe style dla powiększonej strony */
-        .features-section {
-            margin: 80px 0;
-        }
-        .section-title {
+        .launch-container {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 40px;
-            letter-spacing: -0.5px;
+            padding: 40px 20px;
         }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+        .launch-badge {
+            background: rgba(99, 102, 241, 0.1);
+            color: #818cf8;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
         }
-        .feature-box {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 24px;
-        }
-        .feature-box h4 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            color: var(--text-main);
-        }
-        .feature-box p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-        .faq-section {
-            margin: 80px 0;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .faq-item {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 20px 24px;
+        .launch-container h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
             margin-bottom: 16px;
+            line-height: 1.1;
         }
-        .faq-item h4 {
-            font-size: 1.05rem;
-            margin-bottom: 8px;
+        .launch-container h1 span {
+            background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .faq-item p {
+        .launch-container p {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        .preview-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 30px;
+            max-width: 700px;
+            width: 100%;
+            text-align: left;
+            margin-top: 20px;
+        }
+        .preview-box h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .preview-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .preview-list li {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .preview-list li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
         }
     </style>
 </head>
@@ -68,146 +90,35 @@
         <header>
             <a href="#" class="logo">milo<span>tajne</span>.pl</a>
             <div class="nav-links">
-                <a href="#products">Produkty</a>
-                <a href="#features">O nas</a>
-                <a href="#faq">FAQ</a>
-                <a href="https://discord.gg/k9KTcdchdn" target="_blank">Discord</a>
+                <a href="https://discord.gg/k9KTcdchdn" target="_blank">Discord społeczności</a>
             </div>
         </header>
 
-        <!-- Sekcja Hero -->
-        <section class="hero">
-            <h1>Zaawansowane systemy dla <span>nowoczesnych twórców</span></h1>
-            <p>Kupuj gotowe, zweryfikowane skrypty, szablony n8n oraz aplikacje, które przyspieszą Twój biznes cyfrowy.</p>
-            <a href="#products" class="btn" style="padding: 12px 24px; font-size: 1rem; display: inline-block;">Przejdź do oferty</a>
-        </section>
+        <!-- Główna sekcja informacyjna (W budowie) -->
+        <section class="launch-container">
+            <div class="launch-badge">PRZERWA TECHNICZNA / PREMIERA</div>
+            <h1>Budujemy coś <span>wyjątkowego</span></h1>
+            <p>Już niedługo pod marką <strong>milotajne.pl</strong> rusza w pełni zautomatyzowana platforma z cyfrowymi rozwiązaniami. Trwają ostatnie prace wdrożeniowe.</p>
+            
+            <a href="https://discord.gg/k9KTcdchdn" target="_blank" class="btn" style="padding: 12px 24px; font-size: 1rem;">Dołącz do Discorda, aby nic nie ominąć</a>
 
-        <!-- Siatka Produktów (Pobierana na żywo z Supabase) -->
-        <section id="products">
-            <h2 class="section-title">Dostępne Rozwiązania</h2>
-            <div id="products-container" class="products-grid">
-                <!-- Tutaj skrypt JS wstrzykuje produkty z bazy danych -->
-                <p style="color: var(--text-muted); text-align: center; grid-column: 1 / -1;">Ładowanie produktów z bazy danych...</p>
-            </div>
-        </section>
-
-        <!-- Sekcja Powiększona: Dlaczego warto -->
-        <section class="features-section" id="features">
-            <h2 class="section-title">Dlaczego milotajne.pl?</h2>
-            <div class="features-grid">
-                <div class="feature-box">
-                    <h4>🚀 Natychmiastowy dostęp</h4>
-                    <p>Po opłaceniu zamówienia przez bezpieczną bramkę Stripe, system automatycznie generuje dostęp do plików oraz zasobów.</p>
-                </div>
-                <div class="feature-box">
-                    <h4>🔒 Sprawdona jakość</h4>
-                    <p>Wszystkie skrypty, szablony automatyzacji i aplikacje są testowane w realnych projektach przed publikacją w bazie.</p>
-                </div>
-                <div class="feature-box">
-                    <h4>💬 Wsparcie społeczności</h4>
-                    <p>Masz pytania techniczne? Dołącz do naszego serwera Discord, gdzie uzyskasz pomoc od twórców i innych użytkowników.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sekcja FAQ -->
-        <section class="faq-section" id="faq">
-            <h2 class="section-title">Często Zadawane Pytania</h2>
-            <div class="faq-item">
-                <h4>Jak otrzymam zakupiony produkt cyfrowy?</h4>
-                <p>Po zakończeniu płatności zostaniesz przekierowany do panelu pobierania lub otrzymasz link bezpośrednio na adres e-mail powiązany z zamówieniem.</p>
-            </div>
-            <div class="faq-item">
-                <h4>Czy otrzymam fakturę VAT?</h4>
-                <p>Tak, podczas procesu zakupu w systemie Stripe możesz podać dane swojej firmy oraz numer NIP, aby wygenerować dokument rozliczeniowy.</p>
-            </div>
-            <div class="faq-item">
-                <h4>Gdzie mogę zgłosić problem lub zapytać o wsparcie?</h4>
-                <p>Najszybszą formą kontaktu jest nasz dedykowany serwer Discord: <a href="https://discord.gg/k9KTcdchdn" target="_blank" style="color: var(--accent);">discord.gg/k9KTcdchdn</a>.</p>
+            <!-- Co się pojawi na stronie -->
+            <div class="preview-box">
+                <h3>🚀 Co znajdzie się na platformie w dniu startu?</h3>
+                <ul class="preview-list">
+                    <li><strong>Panel Automatyzacji n8n Pro</strong> – gotowe szablony i skrypty do zarządzania procesami.</li>
+                    <li><strong>License Key Manager API</strong> – profesjonalny system autoryzacji oprogramowania.</li>
+                    <li><strong>Discord Webhook Dispatcher</strong> – zaawansowane narzędzia powiadomień dla społeczności.</li>
+                    <li>W pełni zintegrowany system bazodanowy Supabase i bezpieczne płatności Stripe.</li>
+                </ul>
             </div>
         </section>
     </div>
 
     <!-- Stopka -->
     <footer>
-        <p>&copy; 2026 milotajne.pl. Wszelkie prawa zastrzeżone. Wsparcie społeczności: <a href="https://discord.gg/k9KTcdchdn" target="_blank">Discord</a></p>
+        <p>&copy; 2026 milotajne.pl. Wszelkie prawa zastrzeżone. Kontakt: <a href="https://discord.gg/k9KTcdchdn" target="_blank">Discord</a></p>
     </footer>
 
-    <!-- Baner Cookies -->
-    <div id="cookie-banner">
-        <span>Używamy plików cookies, aby zapewnić najwyższą jakość działania platformy.</span>
-        <div class="cookie-btns">
-            <button onclick="rejectCookies()">Odrzuć</button>
-            <button onclick="acceptCookies()">Akceptuj</button>
-        </div>
-    </div>
-
-    <!-- Logika aplikacji łącząca się z Supabase i obsługująca zakupy -->
-    <script type="module">
-        import { supabase } from './supabaseClient.js'
-
-        async function loadProducts() {
-            const container = document.getElementById('products-container');
-            
-            // Pobieranie produktów z tabeli 'products' w Supabase
-            const { data: products, error } = await supabase
-                .from('products')
-                .select('*');
-
-            if (error) {
-                container.innerHTML = `<p style="color: #ef4444; text-align: center; grid-column: 1 / -1;">Błąd ładowania produktów: ${error.message}</p>`;
-                return;
-            }
-
-            if (!products || products.length === 0) {
-                container.innerHTML = `<p style="color: var(--text-muted); text-align: center; grid-column: 1 / -1;">Brak dostępnych produktów w bazie danych.</p>`;
-                return;
-            }
-
-            container.innerHTML = '';
-
-            products.forEach(product => {
-                const card = document.createElement('div');
-                card.className = 'product-card';
-                card.innerHTML = `
-                    <div>
-                        <span class="product-badge">${product.category || 'Cyfrowy Produkt'}</span>
-                        <h3 class="product-title">${product.name}</h3>
-                        <p class="product-desc">${product.description}</p>
-                    </div>
-                    <div class="product-footer">
-                        <span class="product-price">${product.price} PLN</span>
-                        <button class="btn" onclick="buyProduct('${product.stripe_link}')">Kup teraz</button>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        window.buyProduct = function(stripeLink) {
-            if (!stripeLink) {
-                alert('Brak przypisanego linku płatności Stripe dla tego produktu.');
-                return;
-            }
-            window.location.href = stripeLink;
-        }
-
-        loadProducts();
-    </script>
-
-    <!-- Obsługa ciasteczek -->
-    <script>
-        function acceptCookies() {
-            localStorage.setItem('cookies_accepted', 'true');
-            document.getElementById('cookie-banner').style.display = 'none';
-        }
-        function rejectCookies() {
-            localStorage.setItem('cookies_accepted', 'false');
-            document.getElementById('cookie-banner').style.display = 'none';
-        }
-        if(localStorage.getItem('cookies_accepted')) {
-            document.getElementById('cookie-banner').style.display = 'none';
-        }
-    </script>
 </body>
 </html>
