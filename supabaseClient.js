@@ -1,11 +1,6 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 
-const _u = "aHR0cHM6Ly93cHZscGl2bGJiZ3VkZXJuc3Rkai5zdXBhYmFzZS5jbw==";
-const _k = "ZXlKaGJHY2lPaUpTVXpJMU5pSTZJbkpsYm1saGJHeGxaQ0lzSW5SeWIySmxjM01pT2lKbGFHbHVjM01pTENKcmFXNWxJam9pZlNJc0luVnliV3hzYVc1bGN5STZJbkJsZkdGdGIzVnlhV1Z6SWl3aWNYUm9Jam9pTVM0d056VTRPVFl4TWpBNE1TMHdOakU0TFRBM1pqRTNNRFkzTkRabVl6WmlNR0V4TWpNMlpTMHdNV1ExTURSbU9HSmtOamhpWWpNNU15SXNJbUYwYVc5dUlqb2lNakUwTURBeU5qa3pPak4wTURBeE9UUTJORFl5T0RBM05EWXpNekl3TFRBeU1qWXdOakE1TWpFeU9UVXhOelV4TXpjMk5qSTBNVGd5T0RnNFptUXlOMlprTTJVeE5qSTVOVFkyTWpZNVlUQXlOVEkyTmpobFlXWTBOams1WmpneU9UWTVNMklpZlE=";
+const SUPABASE_URL = 'https://wpvlpivlbbgudernstdj.supabase.co'
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndwdmxwaXZsYmJndWRlcm5zdGRqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ5MTAwNzMsImV4cCI6MjEwMDQ4NjA3M30.HX6_euhhGA0nNY1_BWimEJpZzOd7KXd5z0Bd3OpmFYE'
 
-const decode = (str) => atob(str);
-
-const SUPABASE_URL = decode(_u);
-const SUPABASE_ANON_KEY = decode(_k);
-
-export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
